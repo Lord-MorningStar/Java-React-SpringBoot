@@ -3,6 +3,7 @@ import "./App.css";
 import { useState } from "react";
 import Dado from "./Dado";
 import "./Dado.css"
+import Contador from "./Contador";
 
 // function Sumar(e) {
 //   e.preventDefault();
@@ -14,26 +15,18 @@ import "./Dado.css"
 
 function App() {
 
-  function numerosRandom(){
-    return Math.trunc(Math.random() * 6) + 1;
-  }
-  function Tirar(){
-    setNumRandom1(numerosRandom());
-    setNumRandom2(numerosRandom());
-    setNumRandom3(numerosRandom());
+  function cuenta(){
+    setAgregarNumero(numero+1);
   }
 
-  const [v1,setNumRandom1] = useState(0);
-  const [v2,setNumRandom2] = useState(0);
-  const [v3,setNumRandom3] = useState(0);
+
+  const [numero,setAgregarNumero] = useState(0);
 
   return (
   <div>
-    <Dado valor={v1}></Dado>
-    <Dado valor={v2}></Dado>
-    <Dado valor={v3}></Dado>
+    <Contador valor={numero}></Contador>
     <br></br>
-    <button onClick={Tirar}>Tirar Dado</button>
+    <button onClick={cuenta}>+</button>
   </div>
   );
 }
